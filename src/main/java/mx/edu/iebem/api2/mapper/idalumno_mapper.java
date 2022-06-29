@@ -14,7 +14,7 @@ public class idalumno_mapper implements RowMapper<leerXML> {
     public leerXML mapRow(ResultSet arg0, int arg1) throws SQLException {
 
         leerXML xml = new leerXML();
-        xml.setId_alumno(arg0.getInt(0));
+        xml.setId_alumno(arg0.getInt("IDALUMNO"));
         
         return xml;
     }

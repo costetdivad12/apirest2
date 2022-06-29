@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +22,10 @@ import mx.edu.iebem.api2.services.Promedios_services;
 public class Promedios_controller {
 
 @Autowired private Promedios_services service;
-@GetMapping
-public List<Promedios> getPromedios(){
-    return service.ListPromedios();
-}
+// @GetMapping
+// public List<Promedios> getPromedios(){
+//      return service.ListPromedios();
+// }
 
 @PostMapping("/Guardar")
 
@@ -40,8 +41,9 @@ public void getGuardarXML (@RequestParam("file") MultipartFile multipart) throws
     
 }  
 @GetMapping("/{curp}")
-public leerXML getId(String curp){
-    return service.getIdAlumno(curp);
+public leerXML getId(@PathVariable("curp") String curp){
+    System.out.println("CURP"+curp);
+    return service.getidalumno(curp);
 }
     
 }
